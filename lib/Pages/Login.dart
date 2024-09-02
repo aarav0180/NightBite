@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:night_bite/Pages/SignUp.dart';
 import 'package:night_bite/Widgets/service_widget.dart';
 
@@ -18,7 +19,7 @@ class _LoginState extends State<Login> {
       body: SingleChildScrollView(
 
         child: Container(
-          //margin:const EdgeInsets.all(20),
+          //padding:const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -38,13 +39,13 @@ class _LoginState extends State<Login> {
 
                     const SizedBox(height: 10,),
                     const Center(child: const Text("Login", style: TextStyle(color: Colors.black, fontSize: 54, fontWeight: FontWeight.bold,))),
-                    const SizedBox(height: 20,),
+                    const SizedBox(height: 30,),
 
                     //Text("Login", style: AppWidget.semiBoldTextStyle(),),
 
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                       decoration: BoxDecoration(color: const Color.fromRGBO(255,245,228,1), borderRadius: BorderRadius.circular(14)),
                       child: TextFormField(
                         validator: (value) {
@@ -62,7 +63,7 @@ class _LoginState extends State<Login> {
 
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
                       decoration: BoxDecoration(color: const Color.fromRGBO(255,245,228,1), borderRadius: BorderRadius.circular(14)),
                       child: TextFormField(
                         validator: (value) {
@@ -76,35 +77,60 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     
-                    const SizedBox(height: 30,),
+                    const SizedBox(height: 20,),
 
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text("Forget Password", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500)),
-                      ],
+                    Container(
+                      margin:const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text("Forget Password ?", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500)),
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(height: 30,),
+                    const SizedBox(height: 20,),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Don't have an account ?", style: AppWidget.lightTextStyle(),),
-                        GestureDetector(
-                            onTap: (){
-                              Navigator.push(context,MaterialPageRoute(builder: (context) => Signup()) );
-                            },
-                            child: const Text("SignUp", style: TextStyle(color: Colors.green, fontWeight: FontWeight.w500, fontSize: 18),))
-                      ],
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding:const EdgeInsets.symmetric(horizontal: 23, vertical: 10),
+                            decoration: BoxDecoration(color: const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(15)),
+                            child: Row(
+                              children: [
+
+                                SvgPicture.asset('image/google.svg', height: 30, width: 30,),
+                                SizedBox(width: 9,),
+                                Text("Google", style: TextStyle(color: Colors.black, fontSize: 18),),
+                              ],),
+                          ),
+
+                          SizedBox(width: 60,),
+                          //Text("Don't have an account ?", style: AppWidget.lightTextStyle(),),
+                          Container(
+                            padding:const EdgeInsets.symmetric(horizontal: 27, vertical: 12),
+                            decoration: BoxDecoration(color:const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(15) ),
+                            child: GestureDetector(
+                                onTap: (){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => Signup()) );
+                                },
+                                child: const Text("New User ?", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 18),)),
+                          )
+                        ],
+                      ),
                     ),
 
                     const SizedBox(height: 30,),
                     
                     Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                      decoration: BoxDecoration(color: const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(14)),
-                      child: Text("Login", style: AppWidget.semiBoldTextStyle(),),
+                      width: MediaQuery.of(context).size.width,
+                      margin: const EdgeInsets.symmetric(horizontal: 20, ),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(color: const Color.fromRGBO(205,92,8,1), borderRadius: BorderRadius.circular(14)),
+                      child: Center(child: Text("Login", style: AppWidget.semiBoldTextStyle(),)),
                     ), 
 
                   ],
