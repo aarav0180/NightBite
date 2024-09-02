@@ -29,8 +29,8 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration(color: Color.fromRGBO(106,156,137,1), borderRadius: BorderRadius.only(topLeft: Radius.circular(41), topRight: Radius.circular(41))),
                 child: Column(
                   children: [
-                    SizedBox(height: 10,),
-                    Text("Login", style: AppWidget.boldTextfieldStyle(),),
+                    const SizedBox(height: 10,),
+                    const Text("Login", style: TextStyle(color: Colors.black, fontSize: 54, fontWeight: FontWeight.bold,)),
 
                   ],
                 ),
@@ -42,3 +42,5 @@ class _LoginState extends State<Login> {
     );
   }
 }
+
+//Color.fromRGBO(193,216,195,1)
