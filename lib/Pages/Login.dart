@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(height: 30),
-              Image.asset("image/logoblack.png"),
+              Image.asset('image/logoblack.png'),
               //const SizedBox(height: 10,),
 
 
