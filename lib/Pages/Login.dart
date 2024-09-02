@@ -28,14 +28,18 @@ class _LoginState extends State<Login> {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height/1.8,
                 decoration: const BoxDecoration(color: Color.fromRGBO(106,156,137,1), borderRadius: BorderRadius.only(topLeft: Radius.circular(41), topRight: Radius.circular(41))),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
                     const SizedBox(height: 10,),
-                    const Text("Login", style: TextStyle(color: Colors.black, fontSize: 54, fontWeight: FontWeight.bold,)),
+                    const Center(child: const Text("Login", style: TextStyle(color: Colors.black, fontSize: 54, fontWeight: FontWeight.bold,))),
                     const SizedBox(height: 20,),
+
+                    //Text("Login", style: AppWidget.semiBoldTextStyle(),),
 
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -50,6 +54,24 @@ class _LoginState extends State<Login> {
                         },
                         //controller: emailController,
                         decoration: InputDecoration(border: InputBorder.none, hintText: "Email"),
+                      ),
+                    ),
+
+                    const SizedBox(height: 30,),
+
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(color: const Color.fromRGBO(255,245,228,1), borderRadius: BorderRadius.circular(14)),
+                      child: TextFormField(
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        //controller: emailController,
+                        decoration: InputDecoration(border: InputBorder.none, hintText: "Password"),
                       ),
                     )
 
