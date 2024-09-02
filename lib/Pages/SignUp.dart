@@ -30,7 +30,7 @@ class _SignupState extends State<Signup> {
 
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height/1.8,
+                //height: MediaQuery.of(context).size.height/1.8,
                 decoration: const BoxDecoration(color: Color.fromRGBO(106,156,137,1), borderRadius: BorderRadius.only(topLeft: Radius.circular(41), topRight: Radius.circular(41))),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -108,10 +108,10 @@ class _SignupState extends State<Signup> {
                               ],),
                           ),
 
-                          SizedBox(width: 60,),
+                          SizedBox(width: 40,),
                           //Text("Don't have an account ?", style: AppWidget.lightTextStyle(),),
                           Container(
-                            padding:const EdgeInsets.symmetric(horizontal: 27, vertical: 12),
+                            padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                             decoration: BoxDecoration(color:const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(15) ),
                             child: GestureDetector(
                                 onTap: (){
@@ -132,6 +132,8 @@ class _SignupState extends State<Signup> {
                       decoration: BoxDecoration(color: const Color.fromRGBO(205,92,8,1), borderRadius: BorderRadius.circular(14)),
                       child: Center(child: Text("Login", style: AppWidget.semiBoldTextStyle(),)),
                     ),
+
+                    SizedBox(height: 30,),
 
                   ],
                 ),
