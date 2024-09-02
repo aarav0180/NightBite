@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:night_bite/Pages/SignUp.dart';
 import 'package:night_bite/Widgets/service_widget.dart';
 
 class Login extends StatefulWidget {
@@ -73,7 +74,38 @@ class _LoginState extends State<Login> {
                         //controller: emailController,
                         decoration: InputDecoration(border: InputBorder.none, hintText: "Password"),
                       ),
-                    )
+                    ),
+                    
+                    const SizedBox(height: 30,),
+
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text("Forget Password", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500)),
+                      ],
+                    ),
+
+                    const SizedBox(height: 30,),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don't have an account ?", style: AppWidget.lightTextStyle(),),
+                        GestureDetector(
+                            onTap: (){
+                              Navigator.push(context,MaterialPageRoute(builder: (context) => Signup()) );
+                            },
+                            child: const Text("SignUp", style: TextStyle(color: Colors.green, fontWeight: FontWeight.w500, fontSize: 18),))
+                      ],
+                    ),
+
+                    const SizedBox(height: 30,),
+                    
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(color: const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(14)),
+                      child: Text("Login", style: AppWidget.semiBoldTextStyle(),),
+                    ), 
 
                   ],
                 ),
