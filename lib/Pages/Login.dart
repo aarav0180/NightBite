@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:night_bite/Pages/Homepage.dart';
 import 'package:night_bite/Pages/SignUp.dart';
 import 'package:night_bite/Widgets/service_widget.dart';
 
@@ -11,6 +14,41 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+
+  String email="", password="";
+
+  TextEditingController emailController= new TextEditingController();
+  TextEditingController passwordController= new TextEditingController();
+
+  final _formkey= GlobalKey<FormState>();
+
+  userLogin() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.greenAccent,
+          content: Text("Login Successfully",
+              style: TextStyle(color: Colors.black, fontSize: 16))));
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+    } on FirebaseException catch (e) {
+      if (e.code == "user-not") {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.greenAccent,
+            content: Text("user not registered",
+                style: TextStyle(color: Colors.black, fontSize: 16))));
+      }else if(e.code=="wrong-password") {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.greenAccent,
+            content: Text("wrong password",
+                style: TextStyle(color: Colors.black, fontSize: 16))));
+      }
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +66,7 @@ class _LoginState extends State<Login> {
 
 
                 Container(
+                  key: _formkey,
                   width: MediaQuery.of(context).size.width,
                   //height: MediaQuery.of(context).size.height/1.8,
                   decoration: const BoxDecoration(color: Color.fromRGBO(106,156,137,1), borderRadius: BorderRadius.only(topLeft: Radius.circular(41), topRight: Radius.circular(41))),
@@ -53,7 +92,7 @@ class _LoginState extends State<Login> {
                             }
                             return null;
                           },
-                          //controller: emailController,
+                          controller: emailController,
                           decoration: InputDecoration(border: InputBorder.none, hintText: "Email"),
                         ),
                       ),
@@ -71,7 +110,7 @@ class _LoginState extends State<Login> {
                             }
                             return null;
                           },
-                          //controller: emailController,
+                          controller: passwordController,
                           decoration: InputDecoration(border: InputBorder.none, hintText: "Password"),
                         ),
                       ),
