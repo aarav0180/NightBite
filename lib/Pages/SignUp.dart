@@ -36,7 +36,7 @@ class _SignupState extends State<Signup> {
             backgroundColor: Colors.greenAccent,
             content: Text("registered Successfully", style: TextStyle(color: Colors.black, fontSize: 16))));
 
-        Navigator.push(context,MaterialPageRoute(builder: (context) => Homepage()) );
+        Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()) );
 
       }on FirebaseException catch(e) {
         if(e.code=="weak"){
