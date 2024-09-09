@@ -5,7 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:night_bite/Pages/Homepage.dart';
+import 'package:night_bite/Pages/bottomNav.dart';
+import 'package:night_bite/Pages/home.dart';
 import 'package:night_bite/Pages/SignUp.dart';
 import 'package:night_bite/Widgets/service_widget.dart';
 
@@ -38,9 +39,9 @@ class _LoginState extends State<Login> {
           content: Text("Login Successfully",
               style: TextStyle(color: Colors.black, fontSize: 16))));
 
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNav()));
     } on FirebaseException catch (e) {
-      if (e.code == "user-not") {
+      if (e.code == "user-not-found") {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.greenAccent,
             content: Text("user not registered",
@@ -48,7 +49,7 @@ class _LoginState extends State<Login> {
       }else if(e.code=="wrong-password") {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.greenAccent,
-            content: Text("wrong password",
+            content: Text("wrong-password",
                 style: TextStyle(color: Colors.black, fontSize: 16))));
       }
     }

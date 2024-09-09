@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:night_bite/Pages/Homepage.dart';
+import 'package:night_bite/Pages/bottomNav.dart';
+import 'package:night_bite/Pages/home.dart';
 import 'package:night_bite/Pages/Login.dart';
 import 'package:random_string/random_string.dart';
 
@@ -40,7 +41,7 @@ class _SignupState extends State<Signup> {
             backgroundColor: Colors.greenAccent,
             content: Text("registered Successfully", style: TextStyle(color: Colors.black, fontSize: 16))));
 
-        Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()) );
+        Navigator.push(context,MaterialPageRoute(builder: (context) => BottomNav()) );
 
 
         //Adding data to database firebase
@@ -65,13 +66,13 @@ class _SignupState extends State<Signup> {
 
 
       }on FirebaseException catch(e) {
-        if(e.code=="weak"){
+        if(e.code=="weak-password"){
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor: Colors.greenAccent,
               content: Text("password provided is too weak", style: TextStyle(color: Colors.black, fontSize: 16))));
         }
 
-        else if(e.code=="email already in use"){
+        else if(e.code=="email-already-in-use"){
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor: Colors.greenAccent,
               content: Text("account already exist", style: TextStyle(color: Colors.black, fontSize: 16))));
