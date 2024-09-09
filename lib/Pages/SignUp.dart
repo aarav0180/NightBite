@@ -36,7 +36,27 @@ class _SignupState extends State<Signup> {
             backgroundColor: Colors.greenAccent,
             content: Text("registered Successfully", style: TextStyle(color: Colors.black, fontSize: 16))));
 
-        Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()) );
+
+        //Adding data to database firebase
+        String Id= randomAlphaNumeric(10);
+
+        await SharedPreferenceHelper().saveUserEmail(emailController.text);
+        await SharedPreferenceHelper().saveUserName(nameController.text);
+        await SharedPreferenceHelper().saveUserId(Id);
+        await SharedPreferenceHelper().saveUserImage("https://firebasestorage.googleapis.com/v0/b/perfectnew-cc234.appspot.com/o/androgynous-avatar-non-binary-queer-person.jpg?alt=media&token=7a864647-6db0-4544-8753-7dcc00f56feb");
+
+
+        Map<String, dynamic> userInfoMap= {
+          "Name": nameController.text,
+          "Email": emailController.text,
+          "Password": passwordController.text,
+          "Id": Id,
+          "Image": "https://firebasestorage.googleapis.com/v0/b/perfectnew-cc234.appspot.com/o/androgynous-avatar-non-binary-queer-person.jpg?alt=media&token=7a864647-6db0-4544-8753-7dcc00f56feb"
+
+        };
+        await DatabaseMethods().addUserDetails(userInfoMap, Id);
+
+        Navigator.push(context,MaterialPageRoute(builder: (context) => Homepage()) );
 
       }on FirebaseException catch(e) {
         if(e.code=="weak"){
