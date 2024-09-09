@@ -28,6 +28,10 @@ class _SignupState extends State<Signup> {
   final _formkey = GlobalKey<FormState>();
 
   registration() async{
+    name = nameController.text;
+    email = emailController.text;
+    password=passwordController.text;
+
     if (password!=null && name!=null && email!=null){
       try{
         UserCredential userCredential= await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email!, password: password!);
@@ -35,6 +39,8 @@ class _SignupState extends State<Signup> {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.greenAccent,
             content: Text("registered Successfully", style: TextStyle(color: Colors.black, fontSize: 16))));
+
+        Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage()) );
 
 
         //Adding data to database firebase
@@ -56,7 +62,7 @@ class _SignupState extends State<Signup> {
         };
         await DatabaseMethods().addUserDetails(userInfoMap, Id);
 
-        Navigator.push(context,MaterialPageRoute(builder: (context) => Homepage()) );
+
 
       }on FirebaseException catch(e) {
         if(e.code=="weak"){
@@ -203,9 +209,7 @@ class _SignupState extends State<Signup> {
                         onTap: () {
                           if(_formkey.currentState!.validate()){
                             setState(() {
-                              name = nameController.text;
-                              email = emailController.text;
-                              password=passwordController.text;
+
                               registration();
                             });
                           }
