@@ -178,7 +178,7 @@ class _SignupState extends State<Signup> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              padding:const EdgeInsets.symmetric(horizontal: 23, vertical: 10),
+                              padding:const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
                               decoration: BoxDecoration(color: const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(15)),
                               child: Row(
                                 children: [
@@ -192,13 +192,13 @@ class _SignupState extends State<Signup> {
                             SizedBox(width: 40,),
                             //Text("Don't have an account ?", style: AppWidget.lightTextStyle(),),
                             Container(
-                              padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                              padding:const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                               decoration: BoxDecoration(color:const Color.fromRGBO(193,216,195,1), borderRadius: BorderRadius.circular(15) ),
                               child: GestureDetector(
                                   onTap: (){
                                     Navigator.push(context,MaterialPageRoute(builder: (context) => Login()) );
                                   },
-                                  child: const Text("Existing User ?", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 18),)),
+                                  child: const Text("Existing User ?", style: TextStyle(color: Colors.black, fontSize: 16),)),
                             )
                           ],
                         ),
