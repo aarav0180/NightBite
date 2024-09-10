@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:night_bite/Pages/Login.dart';
+import 'package:night_bite/auth/Login.dart';
 
 import '../api/apis.dart'; // Make sure APIs.auth is properly initialized
 class HomePage extends StatefulWidget {

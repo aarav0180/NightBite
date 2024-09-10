@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:night_bite/Pages/bottomNav.dart';
-import 'package:night_bite/Pages/forgotPassword.dart';
+import 'package:night_bite/auth/forgotPassword.dart';
 import 'package:night_bite/Pages/home.dart';
-import 'package:night_bite/Pages/SignUp.dart';
+import 'package:night_bite/auth/SignUp.dart';
 import 'package:night_bite/Widgets/service_widget.dart';
 
 import '../api/apis.dart';
@@ -78,11 +78,11 @@ class _LoginState extends State<Login> {
         //It will redirect to homescreen after login
 
         if((await APIs.userExists())){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const HomePage()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const BottomNav()));
         }
         else{
           await APIs.createUser().then((value){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const HomePage()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const BottomNav()));
           });
         }
       }

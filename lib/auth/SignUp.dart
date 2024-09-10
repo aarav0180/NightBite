@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:night_bite/Pages/bottomNav.dart';
 import 'package:night_bite/Pages/home.dart';
-import 'package:night_bite/Pages/Login.dart';
+import 'package:night_bite/auth/Login.dart';
 import 'package:random_string/random_string.dart';
 
 import '../Widgets/service_widget.dart';
