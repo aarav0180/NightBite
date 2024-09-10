@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:night_bite/Pages/bottomNav.dart';
-import 'package:night_bite/auth/forgotPassword.dart';
-import 'package:night_bite/auth/SignUp.dart';
+import 'package:night_bite/Pages/forgotPassword.dart';
+import 'package:night_bite/Pages/SignUp.dart';
 import 'package:night_bite/Widgets/service_widget.dart';
 
 import '../api/apis.dart';
