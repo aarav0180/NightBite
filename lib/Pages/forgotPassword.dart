@@ -39,7 +39,7 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                   return null;
                 },
                 controller: emailController,
-                decoration: InputDecoration(border: InputBorder.none, hintText: "Password"),
+                decoration: InputDecoration(border: InputBorder.none, hintText: "Enter email"),
               ),
             ),
             const SizedBox(height: 40,),
