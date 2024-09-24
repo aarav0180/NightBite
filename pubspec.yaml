@@ -36,6 +36,14 @@ dependencies:
 
   fluttertoast: ^8.2.1
 
+  cached_network_image:
+
+  #For accessing firebase storage (for uploading files)
+  firebase_storage: ^12.2.0
+
+  #For choosing image
+  image_picker: ^1.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

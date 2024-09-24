@@ -10,6 +10,7 @@ import 'package:night_bite/Widgets/service_widget.dart';
 
 import '../api/apis.dart';
 import '../helper/dialogs.dart';
+import '../main.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -112,6 +113,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return Scaffold(
       //appBar: AppBar(backgroundColor: Colors.white),
       backgroundColor:const Color.fromRGBO(255,245,228,1),
